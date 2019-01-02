@@ -16,11 +16,11 @@ from the output section of this CFT and follow these steps
 * Execute `kubectl apply -f aws-auth.yaml`
 * Execute `kubectl get nodes -w` and watch the worker nodes join the cluster and get to READY state (about 30 secs)
 
-# install-helm.sh
+# install-helm.sh (optional)
 After executing eks-master.yaml and verifying that kubectl is running as expected, copy install-helm to your kubectl node and run `./install-helm.sh`
 This will install helm i the cluster. For more help about helm, visit [Helm Documentation](https://docs.helm.sh/).
 
-# kubernetes-dashboard.yaml
+# kubernetes-dashboard.yaml (optional)
 This kubernetes manifest file will setup our kubernetes dashboard in EKS. This manifest has all the steps needed for setting up a LoadBalancer based Kubernetes Dashboard (public access by default).
 
 * Copy kubernetes-dashboard.yaml to your kubectl node
