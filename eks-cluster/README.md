@@ -19,3 +19,11 @@ from the output section of this CFT and follow these steps
 # install-helm.sh
 After executing eks-master.yaml and verifying that kubectl is running as expected, copy install-helm to your kubectl node and run `./install-helm.sh`
 This will install helm i the cluster. For more help about helm, visit [Helm Documentation](https://docs.helm.sh/).
+
+# kubernetes-dashboard.yaml
+This kubernetes manifest file will setup our kubernetes dashboard in EKS. This manifest has all the steps needed for setting up a LoadBalancer based Kubernetes Dashboard (public access by default).
+
+* Copy kubernetes-dashboard.yaml to your kubectl node
+* From your kubectl node, execute `kubectl apply -f kubernetes-dashboard.yaml`
+
+Please note that this only exposes the dashboard on http, thus, the ALB that is created in the output needs to be secured with Security groups that restrict access to the ALB from within a specific CIDR. If it's not secured, and an ALB is created, it will be public facing and can be accessed from anywhere.
