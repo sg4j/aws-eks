@@ -16,3 +16,6 @@ from the output section of this CFT and follow these steps
 * Execute `kubectl apply -f aws-auth.yaml`
 * Execute `kubectl get nodes -w` and watch the worker nodes join the cluster and get to READY state (about 30 secs)
 
+# install-helm.sh
+After executing eks-master.yaml and verifying that kubectl is running as expected, copy install-helm to your kubectl node and run `./install-helm.sh`
+This will install helm i the cluster. For more help about helm, visit Helm Documentation.
