@@ -18,4 +18,4 @@ from the output section of this CFT and follow these steps
 
 # install-helm.sh
 After executing eks-master.yaml and verifying that kubectl is running as expected, copy install-helm to your kubectl node and run `./install-helm.sh`
-This will install helm i the cluster. For more help about helm, visit Helm Documentation.
+This will install helm i the cluster. For more help about helm, visit [Helm Documentation](https://docs.helm.sh/).
