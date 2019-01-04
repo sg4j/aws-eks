@@ -10,6 +10,7 @@ This CFT automates the steps for creating an EKS cluster. It creates following r
 
 Once you are done executing this CFT (with a non-root aws account), simply login to KubectlNodePublicIP 
 from the output section of this CFT and follow these steps
+* Wait for the kubectl node to get to "System checks passed" state in AWS Console
 * `ssh -i "YOUR KEY that you configured while running the CFT" ec2-user@publicIpOfKubectlNode`
 * Execute `aws configure` {USE YOUR AWS CREDS THAT YOU USED TO CREATE THIS CFT[SHOULD NOT BE ROOT AWS ACCOUNT]}
 * Goto tmp directory on this node `cd /tmp`
