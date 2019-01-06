@@ -685,7 +685,9 @@ Resources:
               "mkdir -p /home/ec2-user/.kube", "\n",
               "cp /tmp/config-ekscluster /home/ec2-user/.kube/", "\n",
               "export KUBECONFIG=$KUBECONFIG:/home/ec2-user/.kube/config-ekscluster", "\n",
-              "echo 'export KUBECONFIG=$KUBECONFIG:/home/ec2-user/.kube/config-ekscluster' >>/home/ec2-user/.bashrc", "\n"
+              "echo 'export KUBECONFIG=$KUBECONFIG:/home/ec2-user/.kube/config-ekscluster' >>/home/ec2-user/.bashrc", "\n",
+              "sudo chown $(id -u):$(id -g) $HOME/.kube/", "\n",
+              "sudo chown $(id -u):$(id -g) $HOME/.kube/config-ekscluster"
              ]
           ]
 # Kubectl Node - End
