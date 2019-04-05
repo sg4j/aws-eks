@@ -398,7 +398,7 @@ Resources:
           VpcId: !Ref VPC
           GroupDescription: Access to EKS Control Plane
           SecurityGroupIngress:
-              # Allow access to resources in this group only from non-prod VPC and NSF on-prem CIDR range
+              # Allow access to resources in this group only from a CIDR range
               - CidrIp: 0.0.0.0/0
                 IpProtocol: -1                  
           Tags:
