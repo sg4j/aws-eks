@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "springboothw-alb-ingress"
+  namespace: "internal-apps"
+  annotations:
+     kubernetes.io/ingress.class: alb
+   
+     # AWS setup
+     alb.ingress.kubernetes.io/scheme: 'internal'
+     alb.ingress.kubernetes.io/subnets: ''
+     alb.ingress.kubernetes.io/security-groups: ''
+     alb.ingress.kubernetes.io/target-type: 'instance'
+     alb.ingress.kubernetes.io/tags: Environment=Test,ALBType=eks-springboothw-sample-alb-ingress-lb   
+     #alb.ingress.kubernetes.io/backend-protocol: HTTPS
+
+     # Enable Logging to S3 and setup deletion protection
+     #alb.ingress.kubernetes.io/load-balancer-attributes: access_logs.s3.enabled=true,access_logs.s3.bucket=dev,access_logs.s3.prefix=apps, deletion_protection.enabled=false
+     
+     # Allow 404s on the health check
+     alb.ingress.kubernetes.io/healthcheck-path: '/'
+     alb.ingress.kubernetes.io/success-codes: '200,404'
+     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
+     #alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+     
+  labels:
+    app: "springboothw-alb-ingress"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: springboothw
+          servicePort: 8080       
